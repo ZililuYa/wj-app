@@ -64,9 +64,12 @@
         // setTimeout(() => this.qrCode(obj.url, 'code' + obj.id), 10)
       },
       qrCode(url, id) {
+        let size = window.innerWidth * 80 / 100;
+        if (size > 500)
+          size = 500
         let qrCode = new QRCode(id, {
-          width: window.innerWidth * 80 / 100, //图像宽度
-          height: window.innerWidth * 80 / 100, //图像高度
+          width: size, //图像宽度
+          height: size, //图像高度
           colorDark: "#000000", //前景色
           colorLight: "#ffffff", //背景色
           typeNumber: 4,
@@ -95,11 +98,13 @@
   #app .ivu-menu-item {
     width: 25%;
     text-align: center;
+    padding: 0 10px;
   }
 
   #app .ivu-menu-item .ivu-icon {
     font-size: 20px;
     margin-bottom: 4px;
+    margin-right: 3px !important;
   }
 
   #app .down {
